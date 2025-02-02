@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+        }
+
+        .card-container {
+            width: 300px;
+            height: 400px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1.5s ease-in-out;
+        }
+
+        .card.open {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-front {
+            background: url('https://source.unsplash.com/300x400/?love,romance') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .card-front h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.2em;
+            color: white;
+        }
+
+        .card-back {
+            background: url('https://source.unsplash.com/300x400/?flowers,apology') no-repeat center center/cover;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .card-back button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" id="greetingCard">
+            <div class="card-face card-front" onclick="openCard()">
+                <h1>For My Love ❤️</h1>
+                <button>Open Your Surprise 💖</button>
+            </div>
+            <div class="card-face card-back">
+                <button onclick="goToSorryPage()">Next Page →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openCard() {
+            document.getElementById('greetingCard').classList.add('open');
+        }
+
+        function goToSorryPage() {
+            window.location.href = "sorry.html";
+        }
+    </script>
+</body>
+</html>
